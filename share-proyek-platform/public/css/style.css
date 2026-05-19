@@ -1,0 +1,496 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #555;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e1e5e9;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+    padding: 8px 16px;
+    width: auto;
+    font-size: 14px;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+}
+
+.alert {
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.alert-success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.form-link {
+    text-align: center;
+    margin-top: 1rem;
+    color: #666;
+}
+
+.form-link a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.form-link a:hover {
+    text-decoration: underline;
+}
+
+.demo-credentials {
+    text-align: center;
+    margin-top: 1rem;
+    color: #888;
+    background: #f8f9fa;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+/* =========================================================
+   NEW DASHBOARD STYLES (PELAPORAN MASALAH LINGKUNGAN)
+   ========================================================= */
+
+/* Override body khusus untuk halaman dashboard agar background ungu hilang */
+body.dlh-body {
+    background: #f8f9fa;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.dlh-sidebar {
+    width: 280px;
+    background-color: #0a3d2c;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dlh-sidebar-header {
+    padding: 30px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.dlh-sidebar-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #126649;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.dlh-sidebar-title {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+}
+
+.dlh-sidebar-footer {
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="150" style="background:%230a3d2c"></svg>'); 
+    background-size: cover;
+    background-position: bottom;
+    min-height: 200px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.dlh-logout-btn {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.dlh-main-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.dlh-top-header {
+    background-color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.dlh-header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.dlh-header-title {
+    font-weight: 600;
+    font-size: 14px;
+    color: #0a3d2c;
+}
+
+.dlh-header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.dlh-notification-bell {
+    position: relative;
+    cursor: pointer;
+}
+
+.dlh-notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #dc3545;
+    color: white;
+    font-size: 10px;
+    padding: 2px 5px;
+    border-radius: 10px;
+}
+
+.dlh-user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dlh-avatar {
+    width: 35px;
+    height: 35px;
+    background-color: #0a3d2c;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.dlh-user-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.dlh-user-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.dlh-user-role {
+    font-size: 12px;
+    color: #6c757d;
+}
+
+.dlh-content {
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.dlh-page-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 24px;
+    text-align: left;
+}
+
+.dlh-page-subtitle {
+    color: #6c757d;
+    font-size: 14px;
+    margin-bottom: 30px;
+    margin-left: 38px;
+}
+
+.dlh-form-grid-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 30px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+    border: 1px solid #dee2e6;
+}
+
+.dlh-form-section-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Modifikasi input spesifik dashboard agar tidak tabrakan style global */
+.dlh-form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+select.dlh-form-control {
+    appearance: auto;
+    background-color: white;
+}
+
+.dlh-form-control:focus {
+    outline: none;
+    border-color: #126649;
+}
+
+.dlh-location-input-wrapper {
+    position: relative;
+    display: flex;
+}
+
+.dlh-btn-location {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    bottom: 5px;
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 0 15px;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #333;
+}
+
+.dlh-upload-area {
+    border: 2px dashed #dee2e6;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #fafafa;
+    margin-bottom: 15px;
+}
+
+.dlh-upload-area:hover {
+    border-color: #126649;
+    background-color: #f0f7f4;
+}
+
+.dlh-upload-icon {
+    font-size: 30px;
+    color: #126649;
+    margin-bottom: 10px;
+}
+
+.dlh-upload-text {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.dlh-upload-hint {
+    font-size: 12px;
+    color: #6c757d;
+}
+
+.dlh-tips-box {
+    background-color: #e8f5e9;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.dlh-tips-title {
+    color: #2e7d32;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dlh-tips-list {
+    list-style: none;
+}
+
+.dlh-tips-list li {
+    font-size: 13px;
+    color: #2e7d32;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.dlh-tips-list li::before {
+    content: '✓';
+    font-weight: bold;
+}
+
+.dlh-form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #dee2e6;
+}
+
+/* Tombol Khusus Dashboard */
+.dlh-btn-outline {
+    background-color: white;
+    border: 1px solid #dee2e6;
+    color: #333;
+    width: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dlh-btn-primary {
+    background: #0a3d2c; /* Mengganti gradien ungu dengan hijau DLH */
+    color: white;
+    width: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dlh-btn-primary:hover {
+    background: #126649;
+    transform: none;
+    box-shadow: none;
+}
+
+.dlh-footer {
+    text-align: center;
+    padding: 20px 30px;
+    font-size: 12px;
+    color: #6c757d;
+    border-top: 1px solid #dee2e6;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Media Query untuk Responsivitas Dasbor */
+@media (max-width: 992px) {
+    .dlh-form-grid-layout {
+        grid-template-columns: 1fr;
+    }
+    .dlh-sidebar {
+        display: none; /* Menyembunyikan sidebar di layar kecil */
+    }
+}
