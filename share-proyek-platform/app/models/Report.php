@@ -24,5 +24,40 @@ class Report extends Model {
         $stmt->execute(['user_id' => $userId]);
         return $stmt->fetchAll();
     }
+
+    //DASHBOARD_ADMIN
+
+    public function getAllReports()
+    {
+        $stmt = $this->db->prepare(
+            "SELECT reports.*, users.username
+             FROM reports
+             JOIN users
+             ON reports.user_id = users.id
+             ORDER BY reports.created_at DESC");
+
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public function countReports()
+    {
+        $stmt = $this->db->prepare(
+            "SELECT COUNT(*) AS total
+             FROM reports");
+
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
+    public function deleteReport($id)
+    {
+        $stmt = $this->db->prepare(
+            "DELETE FROM reports
+             WHERE id = :id");
+
+        return $stmt->execute([
+            'id' => $id]);
+    }
 }
 ?>
