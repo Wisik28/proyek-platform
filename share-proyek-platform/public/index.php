@@ -66,6 +66,16 @@ switch ($path) {
         $controller = new ReportController();
         $controller->create();
         break;
+
+    case 'admin':
+		$controller = new AdminController();
+		$controller->index();
+		break;
+
+	case preg_match('/^admin\/delete\/(\d+)$/', $path, $matches) ? true : false:
+		$controller = new AdminController();
+		$controller->delete($matches[1]);
+		break;
     
     default:
         echo "<h1>404 - Page Not Found</h1>";
