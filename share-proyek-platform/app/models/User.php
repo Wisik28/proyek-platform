@@ -32,5 +32,18 @@ class User extends Model {
     public function verifyPassword($password, $hash) {
         return password_verify($password, $hash);
     }
+
+    //DASHBOARD_ADMIN
+    public function getAllUsers() {
+        $stmt = $this->db->prepare("SELECT * FROM users ORDER BY id DESC");
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
+    public function countUsers() {
+        $stmt = $this->db->prepare("SELECT COUNT(*) AS total FROM users");
+        $stmt->execute();
+        return $stmt->fetch();
+    }
 }
 ?>
